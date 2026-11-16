@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Widget-picker preview. Static copy of the Glance widget's design with sample data; keep in sync with Widgets.kt. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@drawable/wp_bg" android:padding="12dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="📋 TODAY"
+            android:textColor="#FFB347" android:textSize="12sp" android:textStyle="bold" android:maxLines="1" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="45%"
+            android:textColor="#4ADE80" android:textSize="13sp" android:textStyle="bold" />
+    </LinearLayout>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Next: 💧 Water · 2:00 PM"
+        android:textColor="#FFB347" android:textSize="11sp" android:maxLines="1" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="6dp" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical"
+        android:paddingVertical="5dp" android:paddingEnd="8dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp" android:text="☐" android:textColor="#9AA0C7" android:textSize="15sp" />
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Prepare presentation" android:textColor="#F4EEDF" android:textSize="13sp" android:maxLines="1" android:ellipsize="end" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10:30 AM" android:textColor="#39D0D8" android:textSize="10sp" android:maxLines="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical"
+        android:paddingVertical="5dp" android:paddingEnd="8dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp" android:text="☐" android:textColor="#9AA0C7" android:textSize="15sp" />
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pay electricity bill" android:textColor="#F4EEDF" android:textSize="13sp" android:maxLines="1" android:ellipsize="end" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5:00 PM" android:textColor="#39D0D8" android:textSize="10sp" android:maxLines="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical"
+        android:paddingVertical="5dp" android:paddingEnd="8dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp" android:text="☐" android:textColor="#9AA0C7" android:textSize="15sp" />
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Buy groceries" android:textColor="#F4EEDF" android:textSize="13sp" android:maxLines="1" android:ellipsize="end" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

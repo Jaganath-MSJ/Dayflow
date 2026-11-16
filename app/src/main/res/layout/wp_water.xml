@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Widget-picker preview. Static copy of the Glance widget's design with sample data; keep in sync with Widgets.kt. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@drawable/wp_bg" android:padding="12dp">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="💧 WATER"
+        android:textColor="#FFB347" android:textSize="12sp" android:textStyle="bold" android:maxLines="1" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp"
+        android:text="3 / 8" android:textColor="#39D0D8" android:textSize="28sp" android:textStyle="bold" android:maxLines="1" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="glasses today" android:textColor="#9AA0C7" android:textSize="11sp" android:maxLines="1" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:baselineAligned="false">
+        <FrameLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="16dp" android:layout_marginEnd="3dp" android:background="@drawable/wp_bar_on" />
+        <FrameLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="16dp" android:layout_marginEnd="3dp" android:background="@drawable/wp_bar_on" />
+        <FrameLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="16dp" android:layout_marginEnd="3dp" android:background="@drawable/wp_bar_on" />
+        <FrameLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="16dp" android:layout_marginEnd="3dp" android:background="@drawable/wp_bar_off" />
+        <FrameLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="16dp" android:layout_marginEnd="3dp" android:background="@drawable/wp_bar_off" />
+        <FrameLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="16dp" android:layout_marginEnd="3dp" android:background="@drawable/wp_bar_off" />
+        <FrameLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="16dp" android:layout_marginEnd="3dp" android:background="@drawable/wp_bar_off" />
+        <FrameLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="16dp" android:background="@drawable/wp_bar_off" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:baselineAligned="false">
+        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="center" android:text="+1 glass"
+            android:background="@drawable/wp_btn_acc" android:paddingHorizontal="10dp" android:paddingVertical="6dp"
+            android:textColor="#101223" android:textSize="12sp" android:textStyle="bold" android:maxLines="1" android:layout_marginEnd="6dp" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="−1"
+            android:background="@drawable/wp_btn_mut" android:paddingHorizontal="10dp" android:paddingVertical="6dp"
+            android:textColor="#101223" android:textSize="12sp" android:textStyle="bold" android:maxLines="1" />
+    </LinearLayout>
+</LinearLayout>

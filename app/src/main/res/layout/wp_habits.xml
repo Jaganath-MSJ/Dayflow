@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Widget-picker preview. Static copy of the Glance widget's design with sample data; keep in sync with Widgets.kt. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@drawable/wp_bg" android:padding="12dp">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🔥 TODAY\'S HABITS"
+        android:textColor="#FFB347" android:textSize="12sp" android:textStyle="bold" android:maxLines="1" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="6dp" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical"
+        android:paddingVertical="5dp" android:paddingEnd="8dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp" android:text="🧘" android:textSize="16sp" />
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Meditate 10 min" android:textColor="#9AA0C7" android:textSize="13sp" android:maxLines="1" android:ellipsize="end" />
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✓"
+            android:background="@drawable/wp_btn_grn" android:paddingHorizontal="10dp" android:paddingVertical="6dp"
+            android:textColor="#101223" android:textSize="12sp" android:textStyle="bold" android:maxLines="1" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical"
+        android:paddingVertical="5dp" android:paddingEnd="8dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp" android:text="🏋️" android:textSize="16sp" />
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Gym workout" android:textColor="#F4EEDF" android:textSize="13sp" android:maxLines="1" android:ellipsize="end" />
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Done"
+            android:background="@drawable/wp_btn_acc" android:paddingHorizontal="10dp" android:paddingVertical="6dp"
+            android:textColor="#101223" android:textSize="12sp" android:textStyle="bold" android:maxLines="1" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical"
+        android:paddingVertical="5dp" android:paddingEnd="8dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp" android:text="📖" android:textSize="16sp" />
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Read" android:textColor="#F4EEDF" android:textSize="13sp" android:maxLines="1" android:ellipsize="end" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5/20 pages" android:textColor="#9AA0C7" android:textSize="10sp" android:maxLines="1" />
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+1"
+            android:background="@drawable/wp_btn_aqua" android:paddingHorizontal="10dp" android:paddingVertical="6dp"
+            android:textColor="#101223" android:textSize="12sp" android:textStyle="bold" android:maxLines="1" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,28 @@
+# Build output
+build/
+app/build/
+.gradle/
+.kotlin/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Machine-specific / IDE
+local.properties
+.idea/
+*.iml
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Logs and one-off scripts kept outside the repo
+*.log
+ksp_log.txt
+create_dayflow.py
+make_dayflow_zip.py
+
+# Signing keys must never be committed
+*.jks
+*.keystore
