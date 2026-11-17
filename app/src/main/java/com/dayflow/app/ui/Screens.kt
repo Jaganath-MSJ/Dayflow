@@ -449,7 +449,7 @@ import java.util.Locale
         item { DCard { SetRow("Stored only on this device", "Room + DataStore. No account, no cloud.") { Tag("🔒 private", C.grn) }
             Btn("Reset app", false, true, Modifier.padding(top = 12.dp)) {
                 vm.confirmFn = { vm.run { Repo.resetAll() }; vm.say("App reset") }; vm.sheet = "confirm" } } }
-        item { Text("Dayflow v1.0.2 · native · private · offline", color = C.dim, fontSize = 12.sp,
+        item { Text("Dayflow v1.0.3 · native · private · offline", color = C.dim, fontSize = 12.sp,
             modifier = Modifier.fillMaxWidth().padding(16.dp), textAlign = androidx.compose.ui.text.style.TextAlign.Center) }
         item { Spacer(Modifier.height(90.dp)) }
     }

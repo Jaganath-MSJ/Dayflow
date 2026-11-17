@@ -55,7 +55,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Notifier.init(this); schedule(this); runNow(this)
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED)
+        // POST_NOTIFICATIONS only exists on Android 13+; on Android 12 notifications are allowed without asking.
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU &&
+            ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED)
             notifPerm.launch(Manifest.permission.POST_NOTIFICATIONS)
         if (savedInstanceState == null) handleIntent(intent)  // don't restart the moment on recreation
         setContent {

@@ -18,7 +18,9 @@ import org.junit.runner.RunWith
 class UiTest {
     private val compose = createAndroidComposeRule<MainActivity>()
     @get:Rule val rules: RuleChain = RuleChain
-        .outerRule(GrantPermissionRule.grant(Manifest.permission.POST_NOTIFICATIONS))
+        // POST_NOTIFICATIONS only exists on Android 13+; on Android 12 there is nothing to grant
+        .outerRule(if (android.os.Build.VERSION.SDK_INT >= 33) GrantPermissionRule.grant(Manifest.permission.POST_NOTIFICATIONS)
+            else org.junit.rules.TestRule { base, _ -> base })
         .around(compose)
 
     @Before fun reset() = runBlocking {

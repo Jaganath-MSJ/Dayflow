@@ -104,9 +104,10 @@ class TaskToggle : ActionCallback {
 @Composable private fun Title(t: String, modifier: GlanceModifier = GlanceModifier) {
     Text(t, modifier = modifier, maxLines = 1, style = TextStyle(color = ACC, fontSize = 12.sp, fontWeight = FontWeight.Bold))
 }
-@Composable private fun Btn(label: String, action: Action, color: ColorProvider = ACC, modifier: GlanceModifier = GlanceModifier) {
-    Box(modifier.background(color).cornerRadius(10.dp).padding(horizontal = 10.dp, vertical = 6.dp).clickable(action),
-        contentAlignment = Alignment.Center) { Text(label, maxLines = 1, style = TextStyle(color = DARK, fontSize = 12.sp, fontWeight = FontWeight.Bold)) }
+@Composable private fun Btn(label: String, action: Action, color: ColorProvider = ACC, modifier: GlanceModifier = GlanceModifier,
+                            hPad: Dp = 10.dp, textSize: androidx.compose.ui.unit.TextUnit = 12.sp) {
+    Box(modifier.background(color).cornerRadius(10.dp).padding(horizontal = hPad, vertical = 6.dp).clickable(action),
+        contentAlignment = Alignment.Center) { Text(label, maxLines = 1, style = TextStyle(color = DARK, fontSize = textSize, fontWeight = FontWeight.Bold)) }
 }
 
 /*
@@ -258,8 +259,10 @@ class HabitsWidget : GlanceAppWidget() {
                 }
                 Title(if (narrow) "🔥 HABITS" else "🔥 TODAY'S HABITS", GlanceModifier.padding(bottom = 6.dp))
                 val fit = wholeRows(size.height, header = 22.dp, row = 42.dp)
-                if (fit != null) Column(GlanceModifier.defaultWeight()) { rows.take(fit).forEach { HabitRow(it, narrow) } }
-                else LazyColumn(GlanceModifier.defaultWeight()) { items(rows) { HabitRow(it, narrow) } }
+                // one-column slots (~80dp, e.g. the Android 14 Pixel launcher) clipped the "Done" button
+                val tiny = size.width < 110.dp
+                if (fit != null) Column(GlanceModifier.defaultWeight()) { rows.take(fit).forEach { HabitRow(it, narrow, tiny) } }
+                else LazyColumn(GlanceModifier.defaultWeight()) { items(rows) { HabitRow(it, narrow, tiny) } }
             }
         }
     }
@@ -307,10 +310,13 @@ private fun wholeRows(height: Dp, header: Dp, row: Dp): Int? {
     return ((height - 24.dp - header) / row).toInt().coerceIn(1, 8)   // 24dp = Shell vertical padding
 }
 
-@Composable private fun HabitRow(row: Triple<Habit, Int, Boolean>, narrow: Boolean) {
+/** tiny (< 110dp wide): no icon and slimmer button padding so the action button always fits. */
+@Composable private fun HabitRow(row: Triple<Habit, Int, Boolean>, narrow: Boolean, tiny: Boolean = false) {
     val (h, v, done) = row
-    Row(GlanceModifier.fillMaxWidth().padding(top = 5.dp, bottom = 5.dp, end = 8.dp), verticalAlignment = Alignment.CenterVertically) {
-        Text(h.icon, modifier = GlanceModifier.padding(end = 8.dp), style = TextStyle(fontSize = 16.sp))
+    // ~80dp slots leave the button only ~36dp: slimmer padding and 10sp text keep "Done" whole
+    val pad = if (tiny) 4.dp else 10.dp; val ts = if (tiny) 10.sp else 12.sp
+    Row(GlanceModifier.fillMaxWidth().padding(top = 5.dp, bottom = 5.dp, end = if (tiny) 4.dp else 8.dp), verticalAlignment = Alignment.CenterVertically) {
+        if (!tiny) Text(h.icon, modifier = GlanceModifier.padding(end = 8.dp), style = TextStyle(fontSize = 16.sp))
         Column(GlanceModifier.defaultWeight()) {
             if (!narrow) Text(h.name, maxLines = 1, style = TextStyle(color = if (done) MUT else INK, fontSize = 13.sp))
             if (h.type == "count") Text(if (narrow) "$v/${h.goal}" else "$v/${h.goal} ${h.unit}", maxLines = 1,
@@ -318,9 +324,9 @@ private fun wholeRows(height: Dp, header: Dp, row: Dp): Int? {
         }
         // a finished count habit shows ✓ like a tick habit; tapping it undoes one step (5/5 -> 4/5)
         if (h.type == "count") {
-            if (done) Btn("✓", actionRunCallback<HabitBump>(actionParametersOf(ID to h.id, DELTA to -1)), GRN)
-            else Btn("+1", actionRunCallback<HabitBump>(actionParametersOf(ID to h.id, DELTA to 1)), AQUA)
-        } else Btn(if (done) "✓" else "Done", actionRunCallback<HabitTick>(actionParametersOf(ID to h.id)), if (done) GRN else ACC)
+            if (done) Btn("✓", actionRunCallback<HabitBump>(actionParametersOf(ID to h.id, DELTA to -1)), GRN, hPad = pad, textSize = ts)
+            else Btn("+1", actionRunCallback<HabitBump>(actionParametersOf(ID to h.id, DELTA to 1)), AQUA, hPad = pad, textSize = ts)
+        } else Btn(if (done) "✓" else "Done", actionRunCallback<HabitTick>(actionParametersOf(ID to h.id)), if (done) GRN else ACC, hPad = pad, textSize = ts)
     }
 }
 
